@@ -8,5 +8,6 @@ urlpatterns = [
     # If we get into the application and then we are on the homepage --> ""
     # go to views.index has name "index"
     # and we serve the http response index
-    path("v1/",views.v1, name="view 1"),
+    path("<int:id>", views.id, name = "id"),
+    path("<str:name>", views.name1, name = "name")
 ]
