@@ -1,0 +1,17 @@
+<!--How to use for and if loops in templates-->
+{% extends "main/base.html" %}
+{% block title %} View List {% endblock %}
+
+{% block content %}
+    <h1>{{ls.name}}</h1>
+    <ul>
+        {% for item in ls.item_set.all %}   <!--There is no need of brackets in here //cannot decipher error-->
+        <!--for loop to iterate through all the items in the list-->
+            {% if item.complete == False %}
+                <li>{{item.text}}   -   TO DO</li>          <!--Need to use double flower brackets to pass objects-->
+            {% else %}
+                <li>{{item.text}}   -   COMPLETE</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
