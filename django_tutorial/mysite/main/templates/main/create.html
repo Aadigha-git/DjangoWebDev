@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Create List {% endblock %}
+
+{% block content %} 
+Create Page
+<!--Rather than writing html we can make use of djago to define a form object and pass it in here using-->
+<form method="post" action="/create/">
+    {% csrf_token %} <!--needs to go default into django forms we create-->
+    <!--{{form.as_table}}   default-->
+    <!--{{form.as_p}}       vertically down-->
+    {{form.as_ul}}<!--      vertically down as lists-->
+    <!--All we have to do is make the form tags and a submit button to leverage the django framework-->
+    <button type="submit", name="save">Create New</button>
+</form>
+{% endblock %}
+
+<!--
+Posts and get have different security
+Post has more secure encryption
+use for putting information into db
+
+Get can be used for information retrival 
+Maybe if you want to bookmark the particular tab and revisit it. that's when post can be used
+get puts information onto the url. and reads from it
+Oversimplification: that is why post is more secure than get
+-->
