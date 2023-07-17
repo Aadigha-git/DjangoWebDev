@@ -5,13 +5,19 @@
 {% block content %} 
 Create Page
 <!--Rather than writing html we can make use of djago to define a form object and pass it in here using-->
-<form method="post" action="/create/">
+<form method="post" action="/create/" class="form-group">
     {% csrf_token %} <!--needs to go default into django forms we create-->
+    <div class="input-group mb-3 ">
+
     <!--{{form.as_table}}   default-->
     <!--{{form.as_p}}       vertically down-->
-    {{form.as_ul}}<!--      vertically down as lists-->
+    <!--{{form.as_ul}}      vertically down as lists-->
     <!--All we have to do is make the form tags and a submit button to leverage the django framework-->
-    <button type="submit", name="save">Create New</button>
+        <div class="input-group-prepend">
+            <button type="submit", name="save", class="btn btn-success">Create New</button>
+        </div>
+        {{form.name}}
+    </div>
 </form>
 {% endblock %}
 
