@@ -11,10 +11,21 @@ def home(response):
 def idx(response, id):
     ls = ToDoList.objects.get(id=id)
     #item = ls.item_set.get(id = id)
+    #{"save": ["save"], "c1":["clicked"]} #name save points to the value save
     if response.method == "POST":
         if response.POST.get("save"):
-            pass
-        elif response.POST.get("newItem"):  
+            for item in ls.item_set.all():
+                if response.POST.get("c"+ str(item.id)) == "clicked":       #saving the check buttons
+                    item.complete = True
+                else:
+                    item.complete = False
+                item.save()
+        elif response.POST.get("newItem"):
+            txt = response.POST.get("new")
+            if len(txt) > 2 and len(txt) < 201:
+                ls.item_set.create(text = txt, complete=False)
+            else:
+                print("Invalid input. character size 3 to 200")
 
     return render(response, 'main/list.html', {"ls":ls})
 

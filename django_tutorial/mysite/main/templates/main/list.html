@@ -5,7 +5,7 @@
 {% block content %}
     <h1>{{ls.name}}</h1>
     <form method="post" action="#">
-        {% csrf_token %}
+        {% csrf_token  %}
         <ul>
             {% for item in ls.item_set.all %}   <!--There is no need of brackets in here //cannot decipher error-->
             <!--for loop to iterate through all the items in the list-->
