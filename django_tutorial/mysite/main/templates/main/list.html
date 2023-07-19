@@ -11,7 +11,7 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <div class="input-group-text">
-                    {% if item.complete == False %}
+                    {% if item.complete == True %}
                         <input type="checkbox", value="clicked", name="c{{item.id}}" checked>         <!--Need to use double flower brackets to pass objects-->
                     {% else %}
                         <input type="checkbox", value="clicked", name="c{{item.id}}">

@@ -42,7 +42,7 @@
         <div class="sidenav">
             <a href="/">Home</a>
             <a href="/create">Create</a>
-            <a href="/2">View</a>
+            <a href="/view">View</a>
         </div>
         
         <div id = "content" name="content", class="main">
@@ -50,9 +50,8 @@
                 <div class="col-8">
                     <h1 class="mt-2">My site</h1>
                     <hr class="mt-0 mb-4"></hr>
-                    <!--This is the base boiler plate-->
                     {% block content %}
-                        <!--Specific content goes in here-->
+                    <!-- Specific content goes in here -->
                     {% endblock %}
                 </div>
             </div>
